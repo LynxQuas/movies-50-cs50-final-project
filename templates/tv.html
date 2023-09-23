@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Details
+{% endblock %}
+
+{% block main %}
+
+
+<div class="tv_series_container container">
+    <img src="https://image.tmdb.org/t/p/w500{{tv_data.poster_path}}" alt="">
+    <h3>{{tv_data.name}}</h3>
+    <span>Total Episode: {{tv_data.number_of_episodes}}</span>
+    <span>Total seasons: {{tv_data.number_of_seasons}}</span>
+    <span>
+    {% for genre in tv_data.genres %}
+        <span class="genre">{{genre.name}}</span>
+    {% endfor %}
+    </span>
+    <p>{{tv_data.overview}}</p>
+    <span>first-air-date: {{tv_data.first_air_date}}</span>
+    <a href="{{tv_data.homepage}}">more about {{tv_data.name}}</a>
+
+    
+</div>
+
+{% endblock %}

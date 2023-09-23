@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Favorites
+{% endblock %}
+
+{% block main %}
+
+<div>
+    {% if not data%}
+    <h3>No favorites.!</h3>
+    {% endif %}
+    {% for fav in data %}
+    <div class="fav_container container">
+        <div class="img_container start">
+        <img src="https://image.tmdb.org/t/p/w500/{{fav.poster_path}}
+        " alt="">
+        </div>
+        <div>
+        {% if fav.title %}
+        <h3 class="title">{{fav.title}}</h3>
+        {% else %}
+        <h3 class="title">{{fav.name}}</h3>
+        {% endif %}
+        </div>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

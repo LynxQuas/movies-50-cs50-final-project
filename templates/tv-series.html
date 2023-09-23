@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    TV-Series
+{% endblock %}
+
+{% block main %}
+
+<form class="search_form form-inline">
+    <input type="search" id="search" placeholder="Search" autocomplete="off" autofocus>
+    <input type="submit" value="Search" id="search_btn" class="btn btn-primary">
+</form> 
+<div id="tv_container">
+
+    
+{% for tv in tv_data.results %}
+
+
+
+<div class="movies card">
+    <img src="https://image.tmdb.org/t/p/w500{{tv.poster_path}}" class="margin-left">
+    <span>Title: <span class="title">{{tv.name}}</span></span>
+    <span>Rating: <span class="rating">{{tv.vote_average}}</span></span> 
+    <div>
+        <button class="btn btn-secondary details_series" id="{{tv.id}}">Details</button>
+        <button class="btn btn-secondary fav_tv" id="{{ tv.id}}">Fav</button>
+    </div>
+</div>
+{% endfor %}
+
+</div>
+    <button class="btn-primary" id="load_tv">more</button>
+
+{% endblock %}

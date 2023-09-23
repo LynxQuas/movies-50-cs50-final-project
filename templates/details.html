@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Details
+{% endblock %}
+
+{% block main %}
+    <div class="details_container container">
+        <img src="https://image.tmdb.org/t/p/w500/{{details_data.poster_path}}
+        " alt="">
+        <h3 class="title">{{details_data.title}}</h3>
+        <span> Genre:
+        {% for genre in details_data.genres %}
+            <span class="genre">{{genre.name}}</span>
+        {% endfor %}
+        </span>
+        <p>{{ details_data.overview }}</p>
+        <span>Release date: {{ details_data.release_date }}</span>
+        <span>{{ details_data.vote_count }}</span>
+        <span>{{ details_data.vote_average}}</span>
+        <a href="{{details_data.homepage}}">More Details about {{ details_data.title}}</a>
+    </div>
+{% endblock %}

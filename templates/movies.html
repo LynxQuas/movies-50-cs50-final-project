@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block title %}
+    Movies
+{% endblock %}
+{% block main %}
+
+<form class="search_form form-inline">
+    <input type="search" id="search" placeholder="Search" autocomplete="off" autofocus>
+    <input type="submit" value="Search" id="search_btn" class="btn btn-primary">
+</form> 
+
+<div id ="movies_container">
+{% for movie in movies_data.results %}
+
+<div class="movies card">
+    <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" class="margin-left">
+    <span>Title: <span class="title">{{movie.title}}</span></span>
+    <span>Rating: <span class="rating">{{movie.vote_average}}</span></span> 
+    <div>
+        <button class="btn btn-secondary details" id="{{movie.id}}">Details</button>
+        <button class="btn btn-secondary fav_movie" id="{{ movie.id}}">Fav</button>
+    </div>
+</div>
+
+
+{% endfor %}
+</div>
+    <button class="btn-primary" id="load">more</button>
+
+{% endblock %}

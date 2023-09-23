@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}   
+
+<form class="search_form form-inline">
+    <input type="search" id="search" placeholder="Search" autocomplete="off" autofocus>
+    <input type="submit" value="Search" id="search_btn" class="btn btn-primary">
+</form> 
+
+   <!-- Trending  -->
+    <div class="trending_container">
+        <h3>Trending</h3>
+
+        <!-- trending all movies and series -->
+        <div class="trending_all">
+            <h4 class="title">All</h4>
+            <div class="wrapper"> 
+                <!-- fetch from the database -->
+                {% for movies in trending_all.results %}
+                <div class="movies card">
+                        <img src="https://image.tmdb.org/t/p/w500{{movies.poster_path}}" class="margin-left">
+                        <span>Title: <span class="title">
+                            {% if movies.media_type == "movie" %}
+                                {{ movies["title"]}}
+                            {% else %}
+                                {{movies["name"]}}
+                            {% endif %}
+                        </span></span>
+                        <span>Rating: <span class="rating">{{movies.vote_average}}</span></span>
+                        <span>Media type: <span class="title">{{movies.media_type}}</span></span>  
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+         <!-- trending all movies and series -->
+         <div class="trending_movies">
+            <h4 class="title">Movies</h4>
+            <div class="wrapper"> 
+                {% for movies in trending_movie.results %}
+                <div class="movies card">
+                    <img src="https://image.tmdb.org/t/p/w500{{movies.poster_path}}" class="margin-left">
+                    <span>Title: <span class="title">{{movies.title}}</span></span>
+                    <span>Rating: <span class="rating">{{movies.vote_average}}</span></span> 
+                    <div>
+                        <button class="btn btn-secondary details" id="{{movies.id}}">Details</button>
+                        <button class="btn btn-secondary fav_movie" id="{{ movies.id}}">Fav</button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <form action="/movies" method="GET">
+            <button class="btn btn-primary">more</button>
+            </form>
+        </div>
+
+        <div class="trending_movies">
+            <h4 class="title">Tv-Series</h4>
+            <div class="wrapper"> 
+                <!-- fetch from the database -->
+                {% for movies in trending_tv.results %}
+                <div class="movies card">
+                    <img src="https://image.tmdb.org/t/p/w500{{movies.poster_path}}" class="margin-left">
+                    <span>Title: <span class="title">{{movies.name}}</span></span>
+                    <span>Rating: <span class="rating">{{movies.vote_average}}</span></span> 
+                    <div>
+                        <button class="btn btn-secondary details_series" id="{{movies.id}}">Details</button>
+                        <button class="btn btn-secondary fav_tv" id="{{ movies.id}}">Fav</button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <form action="/tv-series" method="GET">
+                <button class="btn btn-primary">more</button>
+                </form>
+        </div>
+
+
+    </div>
+   
+{% endblock %}

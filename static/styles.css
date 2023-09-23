@@ -1,0 +1,150 @@
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+}
+
+.search_form {
+    margin-bottom: 2rem;
+}
+
+#search {
+    width: 20rem;
+}
+
+
+
+/* width */
+.wrapper::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Handle on hover */
+  .wrapper::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+.movies {
+    display:flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: #000;
+    margin: 1rem;
+    color: #fff;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+    gap: 1rem;
+    width: 15rem;
+    
+}
+
+
+.rating {
+    color:#ea433b;
+}
+
+.title {
+    font-weight: 700;
+    color:gold;
+}
+
+
+#movies_container,
+#tv_container,
+.wrapper,
+.trending_container {
+    display:flex;
+    width: 95%;
+    flex-wrap: wrap;   
+    padding-left: 7rem; 
+}
+
+.card {
+    border-radius: 10px;
+}
+
+.margin-left{
+    margin-left: 1.5rem;
+}
+
+.details_container {
+    background-color: #000;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: #fff;
+}
+.details_container > img {
+    width: 70%;
+    height: 20rem;
+}
+
+.genre{
+    color: #537fbe; 
+}
+
+.fav_container {
+    display:flex;
+    justify-content: space-between;
+    padding: 1rem;
+    align-items: center;
+    border: 1px solid black;
+}
+
+
+
+
+
+@media only screen and (max-width:600px) {
+    #search {
+        width: 50%;
+    }
+
+    #movies_container,
+    #tv_container,
+    .wrapper,
+    .trending_container {
+        padding-left: 10px;
+    }
+
+    .details_container > img {
+        width: 100%;
+    }
+    
+}   
+
+/* .trending_movies {
+    display:flex;
+    width:100%;
+    gap:1rem;
+    overflow-y:scroll;
+}
+
+
+
+
