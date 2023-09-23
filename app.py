@@ -34,7 +34,7 @@ def after_request(response):
     return response
 
 # Home page
-@app.route("/gorgeous-mermaid-87b6c0.netlify.app/")
+@app.route("/")
 @login_required
 def index():
     """Show all the movies"""
